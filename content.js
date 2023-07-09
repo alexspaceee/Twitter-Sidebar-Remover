@@ -73,7 +73,7 @@ function urlContainsWord(word) {
 }
 
 // Specify words you want to check
-var words = ["explore", "messages", "articles", "verified-orgs-signup", "drafts", "compose/tweet", "photo", "likes", "i/foundmedia/search", "spaces", "lists"];  // Replace these with your words
+var words = ["explore", "messages", "articles", "verified-orgs-signup", "drafts", "compose/tweet", "photo", "likes", "i/foundmedia/search", "spaces", "lists", "communities/create"];  // Replace these with your words
 
 var magic_width = 1077; // width at which the divs is being hidden because reasons
 
