@@ -10,16 +10,12 @@ secondDiv.setAttribute("id", "customSquare2");
 var thirdDiv = document.createElement("div");
 thirdDiv.setAttribute("id", "customSquare3");
 
-// Create a fourth div element
-var fourthDiv = document.createElement("div");
-fourthDiv.setAttribute("id", "customSquare4");
-
 // Apply styles to the first div
 firstDiv.style.position = "fixed";
 firstDiv.style.zIndex = "9999";
 firstDiv.style.width = "28.2px";
 firstDiv.style.height = "1000px";
-firstDiv.style.background = "white"; // rgba(255,255,255,0.5)
+firstDiv.style.background = "white";
 firstDiv.style.border = "0px solid black";
 firstDiv.style.borderRadius = "0%";
 firstDiv.style.top = "5.35%";
@@ -46,25 +42,12 @@ thirdDiv.style.border = "0px solid black";
 thirdDiv.style.borderRadius = "0%";
 thirdDiv.style.top = "5.35%";
 thirdDiv.style.left = "64.1%";
-thirdDiv.style.display = "none";  // Initially, it should not be displayed
-
-// Apply styles to the fourth div
-fourthDiv.style.position = "fixed";
-fourthDiv.style.zIndex = "9999";
-fourthDiv.style.width = "651px";
-fourthDiv.style.height = "924px";
-fourthDiv.style.background = "white";
-fourthDiv.style.border = "0px solid black";
-fourthDiv.style.borderRadius = "0%";
-fourthDiv.style.top = "0%";
-fourthDiv.style.left = "86.1%";
-fourthDiv.style.display = "none";  // Initially, it should not be displayed
+thirdDiv.style.display = "none";
 
 // Append the divs to the body
 document.body.appendChild(firstDiv);
 document.body.appendChild(secondDiv);
 document.body.appendChild(thirdDiv);
-document.body.appendChild(fourthDiv);
 
 // Function to check if the URL contains a certain word
 function urlContainsWord(word) {
@@ -75,7 +58,8 @@ function urlContainsWord(word) {
 // Specify words you want to check
 var words = ["explore", "messages", "articles", "verified-orgs-signup", "drafts", "compose/tweet", "photo", "likes", "i/foundmedia/search", "spaces", "lists", "communities/create"];  // Replace these with your words
 
-var magic_width = 1077; // width at which the divs is being hidden because reasons
+// var magic_width = 1077; // width at which all divs are to be hidden because reasons
+var magic_width = 987; // width at which all divs are to be hidden because reasons
 
 // Function to check the URL and hide or show divs based on whether it contains any of the specified words
 function checkUrlAndHideDivs() {
@@ -88,17 +72,15 @@ function checkUrlAndHideDivs() {
   }
 
   if (foundWord || window.innerWidth <= magic_width) {
-    // If any of the words were found in the URL or window width is less than or equal to magic_width variable (for example 987), hide all divs
+    // If any of the words were found in the URL or window width is less than or equal to magic_width variable, hide all divs
     firstDiv.style.display = "none";
     secondDiv.style.display = "none";
     thirdDiv.style.display = "none";
-    fourthDiv.style.display = "none";
   } else {
-    // If none of the words were found in the URL and window width is more than magic_width variable (for example 987), show the first div and second div and hide the others
+    // If none of the words were found in the URL and window width is more than magic_width variable, show only the first div and second div and hide div 3
     firstDiv.style.display = "block";
     secondDiv.style.display = "block";
     thirdDiv.style.display = "none";
-    fourthDiv.style.display = "none";
   }
 }
 
@@ -121,7 +103,6 @@ firstDiv.addEventListener('click', function(event) {
   firstDiv.style.display = "none";
   secondDiv.style.display = "none";
   thirdDiv.style.display = "block";
-  fourthDiv.style.display = "block";
 });
 
 // Listen for the click event on the third div
@@ -130,7 +111,6 @@ secondDiv.addEventListener('click', function(event) {
   firstDiv.style.display = "block";
   secondDiv.style.display = "block";
   thirdDiv.style.display = "none";
-  fourthDiv.style.display = "none";
 });
 
 // Listen for the click event on the fourth div
@@ -139,7 +119,6 @@ thirdDiv.addEventListener('click', function(event) {
   firstDiv.style.display = "block";
   secondDiv.style.display = "block";
   thirdDiv.style.display = "none";
-  fourthDiv.style.display = "none";
 });
 
 function logWindowWidth() {
@@ -149,13 +128,11 @@ function logWindowWidth() {
     firstDiv.style.display = "none";
     secondDiv.style.display = "none";
     thirdDiv.style.display = "none";
-    fourthDiv.style.display = "none";
   }
   else {
     firstDiv.style.display = "block";
     secondDiv.style.display = "block";
     thirdDiv.style.display = "none";
-    fourthDiv.style.display = "none";
   }
 }
 
